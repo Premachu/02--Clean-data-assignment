@@ -1,0 +1,186 @@
+---
+title: "Codebook"
+author: "Prem Gill"
+date: "22/11/15"
+output:
+  html_document:
+    keep_md: yes
+---
+
+## Project Description
+
+A set of data was cleaned and arranged into a single tidy dataframe, following the principles of Hadley Wickham's ([Tidy Data Paper](http://vita.had.co.nz/papers/tidy-data.pdf)). 
+
+A public domain dataset was used for this study ("Human Activity Recognition using Smartphones Dataset" [1]), which contained a set of accelerometer data for two seperate test groups. Both test groups were combined into a single dataset. 
+
+##Study design and data processing
+
+###Collection of the raw data
+
+Data was collected via accelerometers from the Samsung Galaxy S smartphone. 
+
+30 Subjects were split at random into two sets, where 30% generated the training dataset and 70% generated the testing dataset.
+
+Each subject was required to carry out six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing the a smartphone on the wasit.
+
+A resulting dataset was created 
+
+Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
+
+
+##Creating the tidy datafile
+
+###Guide to create the tidy data file
+
+1. Download the original ([data](https://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)) via the UC Irvine Machine Learning Repository website. 
+
+2. Run the script ([data](https://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)) via the UC Irvine Machine Learning Repository website.
+
+
+###Cleaning of the data
+
+1. The follow `train` and `test` datasets were combined into a single data:
+
+* train
+    * train/X_train.txt': Training set.
+    * train/y_train.txt': Training labels. 
+* test
+    * test/X_test.txt': Test set.
+    *test/y_test.txt': Test labels.
+    
+
+2. The dataframe is named with descriptive activity names and descriptive variable names.
+
+3. Data is extracted on the `mean` and `std` measurements for each variable.
+
+4. Using the data from step 3 an independent tidy data set with the average of each variable for each activity and each subject is created.
+
+[link to the readme document that describes the code in greater detail]()
+
+##Description of the variables in the tidy_data.txt file
+
+ - 180 obs. of  81 variables
+ - The set of variables contain `mean(): Mean value` and `std(): Standard deviation` of each signal obtained from the accelerometer and gyroscope.
+ - Values are averages of each variable for each activity for each subject. 
+
+
+ - `ID` is the ID of the subject. Ranges from 1:30.
+ - `Activity` lists which of the six activities were measured.
+ - The features selected for this database come from the set of `std` and `mean` features, which were averaged for each activity of each subject.
+ - '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
+
+These signals were used to estimate variables of the feature vector for each pattern:  
+
+```
+tBodyAcc-XYZ
+tGravityAcc-XYZ
+tBodyAccJerk-XYZ
+tBodyGyro-XYZ
+tBodyGyroJerk-XYZ
+tBodyAccMag
+tGravityAccMag
+tBodyAccJerkMag
+tBodyGyroMag
+tBodyGyroJerkMag
+fBodyAcc-XYZ
+fBodyAccJerk-XYZ
+fBodyGyro-XYZ
+fBodyAccMag
+fBodyAccJerkMag
+fBodyGyroMag
+fBodyGyroJerkMag
+```
+Only features from the sets `mean` and `std` were used for the feature vector of the dataset: 
+
+```
+row.names  class
+1	ID	integer
+2	Activity	factor
+3	tBodyAcc.mean...X	numeric
+4	tBodyAcc.mean...Y	numeric
+5	tBodyAcc.mean...Z	numeric
+6	tBodyAcc.std...X	numeric
+7	tBodyAcc.std...Y	numeric
+8	tBodyAcc.std...Z	numeric
+9	tGravityAcc.mean...X	numeric
+10	tGravityAcc.mean...Y	numeric
+11	tGravityAcc.mean...Z	numeric
+12	tGravityAcc.std...X	numeric
+13	tGravityAcc.std...Y	numeric
+14	tGravityAcc.std...Z	numeric
+15	tBodyAccJerk.mean...X	numeric
+16	tBodyAccJerk.mean...Y	numeric
+17	tBodyAccJerk.mean...Z	numeric
+18	tBodyAccJerk.std...X	numeric
+19	tBodyAccJerk.std...Y	numeric
+20	tBodyAccJerk.std...Z	numeric
+21	tBodyGyro.mean...X	numeric
+22	tBodyGyro.mean...Y	numeric
+23	tBodyGyro.mean...Z	numeric
+24	tBodyGyro.std...X	numeric
+25	tBodyGyro.std...Y	numeric
+26	tBodyGyro.std...Z	numeric
+27	tBodyGyroJerk.mean...X	numeric
+28	tBodyGyroJerk.mean...Y	numeric
+29	tBodyGyroJerk.mean...Z	numeric
+30	tBodyGyroJerk.std...X	numeric
+31	tBodyGyroJerk.std...Y	numeric
+32	tBodyGyroJerk.std...Z	numeric
+33	tBodyAccMag.mean..	numeric
+34	tBodyAccMag.std..	numeric
+35	tGravityAccMag.mean..	numeric
+36	tGravityAccMag.std..	numeric
+37	tBodyAccJerkMag.mean..	numeric
+38	tBodyAccJerkMag.std..	numeric
+39	tBodyGyroMag.mean..	numeric
+40	tBodyGyroMag.std..	numeric
+41	tBodyGyroJerkMag.mean..	numeric
+42	tBodyGyroJerkMag.std..	numeric
+43	fBodyAcc.mean...X	numeric
+44	fBodyAcc.mean...Y	numeric
+45	fBodyAcc.mean...Z	numeric
+46	fBodyAcc.std...X	numeric
+47	fBodyAcc.std...Y	numeric
+48	fBodyAcc.std...Z	numeric
+49	fBodyAcc.meanFreq...X	numeric
+50	fBodyAcc.meanFreq...Y	numeric
+51	fBodyAcc.meanFreq...Z	numeric
+52	fBodyAccJerk.mean...X	numeric
+53	fBodyAccJerk.mean...Y	numeric
+54	fBodyAccJerk.mean...Z	numeric
+55	fBodyAccJerk.std...X	numeric
+56	fBodyAccJerk.std...Y	numeric
+57	fBodyAccJerk.std...Z	numeric
+58	fBodyAccJerk.meanFreq...X	numeric
+59	fBodyAccJerk.meanFreq...Y	numeric
+60	fBodyAccJerk.meanFreq...Z	numeric
+61	fBodyGyro.mean...X	numeric
+62	fBodyGyro.mean...Y	numeric
+63	fBodyGyro.mean...Z	numeric
+64	fBodyGyro.std...X	numeric
+65	fBodyGyro.std...Y	numeric
+66	fBodyGyro.std...Z	numeric
+67	fBodyGyro.meanFreq...X	numeric
+68	fBodyGyro.meanFreq...Y	numeric
+69	fBodyGyro.meanFreq...Z	numeric
+70	fBodyAccMag.mean..	numeric
+71	fBodyAccMag.std..	numeric
+72	fBodyAccMag.meanFreq..	numeric
+73	fBodyBodyAccJerkMag.mean..	numeric
+74	fBodyBodyAccJerkMag.std..	numeric
+75	fBodyBodyAccJerkMag.meanFreq..	numeric
+76	fBodyBodyGyroMag.mean..	numeric
+77	fBodyBodyGyroMag.std..	numeric
+78	fBodyBodyGyroMag.meanFreq..	numeric
+79	fBodyBodyGyroJerkMag.mean..	numeric
+80	fBodyBodyGyroJerkMag.std..	numeric
+81	fBodyBodyGyroJerkMag.meanFreq..	numeric
+```
+
+##Sources
+
+[1] Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012
+
+This dataset is distributed AS-IS and no responsibility implied or explicit can be addressed to the authors or their institutions for its use or misuse. Any commercial use is prohibited.
+
+Jorge L. Reyes-Ortiz, Alessandro Ghio, Luca Oneto, Davide Anguita. November 2012.

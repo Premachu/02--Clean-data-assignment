@@ -9,7 +9,6 @@
   testY<- read.table("./UCI HAR Dataset/test/y_test.txt") # labels of activity
   testX<- read.table("./UCI HAR Dataset/test/X_test.txt") # measurements of each feature
   test_sub<- read.table("./UCI HAR Dataset/test/subject_test.txt")
-  accX <- read.table("./UCI HAR Dataset/test/Inertial Signals/body_acc_x_test.txt")
   
 # Load train data of 21 subjects into dataframe
 
