@@ -1,7 +1,7 @@
 Cleaning and tidying data demonstration: Samsung data
 ==========
 
-Data collected from the `Human Activity Recognition Using Smartphones Data Set` to give a demonstration on cleaning, combining and outputting tidy datasets following the principles of Hadley Wickham's *Tidy Data Paper*
+Data collected from the *Human Activity Recognition Using Smartphones Data Set* to give a demonstration on cleaning, combining and outputting tidy datasets following the principles of Hadley Wickham's *Tidy Data Paper*
 
 The data comprises of 30 subjects who have carried out six activities while wearing a Samsung Smart Phone on the waist. Measurements of accelerometers from the Samsung Galaxy S smartphone were recorded.
 The participants was randomly split, where 30% generated the training dataset and 70% generated the test dataset. 
